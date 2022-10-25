@@ -44,18 +44,43 @@ print(numbers.add_nums())
 
 
 #4*.
-class Pasta:
-    """
-    Створіть клас, який приймає 1 атрибут при ініціалізації - ingredients і визначає інгридієнти атрибута екземпляра.
+""" Створіть клас, який приймає 1 атрибут при ініціалізації - ingredients і визначає інгридієнти атрибута екземпляра.
     Він повинен мати 2 методи:
     carbonara (['forcemeat', 'tomatoes']) and bolognaise (['bacon', 'parmesan', 'eggs'])
-    which should create Pasta instances with predefined list of ingredients.
+    який має створити екземпляри макаронних виробів із попередньо визначеним списком інгредієнтів.
     Example:
         pasta_1 = Pasta(["tomato", "cucumber"])
         pasta_1.ingredients will equal to ["tomato", "cucumber"]
         pasta_2 = Pasta.bolognaise()
-        pasta_2.ingredients will equal to ['bacon', 'parmesan', 'eggs']
-    """
+        pasta_2.ingredients will equal to ['bacon', 'parmesan', 'eggs']"""
+class Pasta:
+
+    def __init__(self, ingredients):
+        self.ingredients = ingredients
+        if 'forcemeat' and 'tomatoes' in ingredients:
+            self.name = 'carbonara'
+        elif 'bacon' and 'parmesan' and 'eggs' in ingredients:
+            self.name = 'bolognaise'
+        else:
+            self.name = 'unknown'
+
+    @classmethod
+    def carbonara(cls):
+        return cls(['forcemeat', 'tomatoes'])
+
+    @classmethod
+    def bolognaise(cls):
+        return cls(['bacon', 'parmesan', 'eggs'])
+
+pasta_1 = Pasta(['tomato', 'cucumber'])
+print(f'pasta_1.ingredients  will equal to {pasta_1.ingredients}')
+print(pasta_1.name)
+pasta_2 = Pasta.bolognaise()
+print(f'pasta_2.ingredient will equal to {pasta_2.ingredients}')
+pasta_3 = Pasta.carbonara()
+print(f'pasta_3.ingredient will equal to {pasta_3.ingredients}')
+
+
 
 #5*.
 class Concert:
