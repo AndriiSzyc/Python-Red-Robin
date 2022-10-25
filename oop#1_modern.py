@@ -86,8 +86,15 @@ print(f'Type bus_for_school.bus_school_color: {type(bus_for_school.bus_school_co
 Обидва вони повинні мати метод eat. Створіть два екземпляри: від Ведмідь і від Вовк,
 створіть із нього кортеж і використовуючи спільну змінну, викличте метод eat.'''
 
-class Bear:
+class ForestAnimals:
+    def info(self):
+        print('Live in the forest')
+    def eat(self):
+        print('Animals eat animals')
+
+class Bear(ForestAnimals):
     def __init__(self, variety):
+        super().__init__()
         self.variety = variety
 
     def print_variety(self):
@@ -97,8 +104,9 @@ class Bear:
         print('honey')
 
 
-class Wolf:
+class Wolf(ForestAnimals):
     def __init__(self, variety):
+        super().__init__()
         self.variety = variety
 
     def print_variety(self):
@@ -113,5 +121,6 @@ grey_wolf = Wolf('Grey')
 animal = (grizzly_bear, grey_wolf)
 
 for animal in animal:
-    animal.eat()
+    animal.info()
     animal.print_variety()
+    animal.eat()
