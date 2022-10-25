@@ -66,11 +66,11 @@ class Pasta:
 
     @classmethod
     def carbonara(cls):
-        return cls(['forcemeat', 'tomatoes'])
+        return Pasta(['forcemeat', 'tomatoes'])
 
     @classmethod
     def bolognaise(cls):
-        return cls(['bacon', 'parmesan', 'eggs'])
+        return Pasta(['bacon', 'parmesan', 'eggs'])
 
 pasta_1 = Pasta(['tomato', 'cucumber'])
 print(f'pasta_1.ingredients  will equal to {pasta_1.ingredients}')
