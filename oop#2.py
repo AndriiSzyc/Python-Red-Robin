@@ -88,11 +88,14 @@ print(f'pasta_3.ingredient will equal to {pasta_3.ingredients}')
 #5*.
 class Concert:
     max_visitors_num = 0
+
     def __init__(self, visitors_count=0):
         self.visitors_count = visitors_count
+
     @property
     def visitors_count(self):
         return self._visitors_count
+
     @visitors_count.setter
     def visitors_count(self, value):
         if value > Concert.max_visitors_num:
