@@ -1,6 +1,5 @@
 import collections
 import dataclasses
-from collections import namedtuple
 
 #1. Make the class with composition.
 class Laptop:
@@ -87,12 +86,25 @@ print(f'pasta_3.ingredient will equal to {pasta_3.ingredients}')
 
 
 #5*.
-#class Concert:
-#    max_visitors_num = 0
-#    def __init__(self):
-#        self._visitors_count = 0
+class Concert:
+    max_visitors_num = 0
+    def __init__(self, visitors_count=0):
+        self.visitors_count = visitors_count
+    @property
+    def visitors_count(self):
+        return self._visitors_count
+    @visitors_count.setter
+    def visitors_count(self, value):
+        if value > Concert.max_visitors_num:
+            self._visitors_count = Concert.max_visitors_num
 
+Concert.max_visitors_num = 50
 
+concert = Concert()
+print(concert.max_visitors_num)
+
+concert.visitors_count = 1001
+print(concert.visitors_count)
 
 """
     Make class, which has max_visitors_num attribute and its instances will have visitors_count attribute.
