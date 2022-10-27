@@ -1,3 +1,7 @@
+import collections
+import dataclasses
+from collections import namedtuple
+
 #1. Make the class with composition.
 class Laptop:
 
@@ -83,8 +87,14 @@ print(f'pasta_3.ingredient will equal to {pasta_3.ingredients}')
 
 
 #5*.
-class Concert:
-    """
+#class Concert:
+#    max_visitors_num = 0
+#    def __init__(self):
+#        self._visitors_count = 0
+
+
+
+"""
     Make class, which has max_visitors_num attribute and its instances will have visitors_count attribute.
     In case of setting visitors_count - max_visitors_num should be checked,
     if visitors_count value is bigger than max_visitors_num - visitors_count should be assigned with max_visitors_num.
@@ -96,15 +106,48 @@ class Concert:
     """
 
 #6.
+
+@dataclasses.dataclass
 class AddressBookDataClass:
-    """
+    key: int
+    name: str
+    phone_number: str
+    address: str
+    email: str
+    birthday: str
+    age: int
+
+adbook = AddressBookDataClass(7, 'Andrii', '+38067', 'Slav', 'andrii@ukr.net', '12.08.XXXX', 38)
+print(adbook)
+print(adbook.name)
+adbook.age = 45
+print(adbook.age)
+
+"""
     Create dataclass with 7 fields - key (int), name (str), phone_number (str), address (str), email (str), birthday (str), age (int)
     """
 
 #7. Create the same class (6) but using NamedTuple
+AddressBookDataClass = collections.namedtuple('AddressBookDataClass', ['key', 'name', 'phone_number', 'address', 'email', 'birthday', 'age'])
+adbook = AddressBookDataClass(7, 'Andrii', '+38067', 'Slav', 'andrii@ukr.net', '12.08.XXXX', 38)
+
+print(adbook.name)
+print(adbook[1])
+
 #8.
+@dataclasses.dataclass
 class AddressBook:
-    """
+    key: str
+    name: str
+    phone_number: str
+    address: str
+    email: str
+    birthday: str
+    age: str
+
+adbook = AddressBook('7', 'Andrii', '+38067', 'Slav', 'andrii@ukr.net', '12.08.XXXX', '38')
+print(adbook)
+"""
     Create regular class taking 7 params on init - key, name, phone_number, address, email, birthday, age
     Make its str() representation the same as for AddressBookDataClass defined above.
     Expected result by printing instance of AddressBook: AddressBook(key='', name='', phone_number='', address='', email='', birthday= '', age='')
@@ -117,6 +160,9 @@ class Person:
     name = "John"
     age = 36
     country = "USA"
+person = Person()
+person.age = 38
+print(person.age)
 
 #10.
 class Student:
@@ -126,7 +172,11 @@ class Student:
     """
     id = 0
     name = ""
-
-    def __init__(self, id, name):
+    email = ''
+    def __init__(self, id, name, email):
         self.id = id
         self.name = name
+        self.student_email = email
+
+test_student = Student(38, 'Andrii', 'andrii@ukr.net')
+print(getattr(test_student, 'student_email'))
