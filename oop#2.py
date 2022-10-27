@@ -100,6 +100,8 @@ class Concert:
     def visitors_count(self, value):
         if value > Concert.max_visitors_num:
             self._visitors_count = Concert.max_visitors_num
+        else:
+            self._visitors_count = value
 
 Concert.max_visitors_num = 50
 
