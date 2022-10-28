@@ -100,3 +100,70 @@ my_laptop.Ports(4)
 '''5. Create an abstract class for the Car with the next methods: drive, stop, open_door, close_door, turn_on_light,
 turn_off_light, enable_radio, disable_radio, where drive and stop will be predefined with some realization, all others
 should be abstract.'''
+
+
+class Car(ABC):
+
+    def drive(self):
+        print('i am drive')
+
+    def stop(self):
+        print('i am stop')
+
+    @abstractmethod
+    def open_door(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def close_door(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def turn_on_light(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def turn_off_light(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def enable_radio(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def disable_radio(self):
+        raise NotImplementedError
+
+class Ford(Car):
+    def __init__(self, body_type, engine, transmission):
+        self.body_type = body_type
+        self.engine = engine
+        self.transmission = transmission
+
+    def drive(self):
+        print('i am drive')
+
+    def stop(self):
+        print('i am stop')
+
+    def open_door(self):
+        print('i am open door')
+
+    def close_door(self):
+        print('i am close door')
+
+    def turn_on_light(self):
+        print('i am turn on light')
+
+    def turn_off_light(self):
+        print('i am turn_off light')
+
+    def enable_radio(self):
+        print('i am enable radio')
+
+    def disable_radio(self):
+        print('i am disable radio')
+
+car = Ford('sedan', 'diesel', 'automat')
+car.drive()
+car.stop()
