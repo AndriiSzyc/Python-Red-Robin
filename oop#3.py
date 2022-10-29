@@ -5,38 +5,60 @@ Iterator get numbers of first Fibonacci numbers
 Example:'''
 
 
-class Fibonacci:
-    def __init__(self, f1=1, f2=1):
+class FibonacciNumbers:
+    def __init__(self, limiter=0, f1=0, f2=1):
         self.f1 = f1
         self.f2 = f2
+        self.limiter = limiter
+        print(self.f1)
+        print(self.f2)
+    def __iter__(self):
+        return self
 
-    def fibonacci_sec(self):
-        print(f'{self.f1}\n{self.f2}')
-        for i in range(2, 10):
-            self.f1, self.f2 = self.f2, self.f1 + self.f2
-            print(self.f2)
+    def __next__(self):
 
+        self.limiter -= 1
+        if self.limiter > 0:
+           self.f1, self.f2 = self.f2, self.f1 + self.f2
+           return self.f2
+        else:
+            raise StopIteration
 
-fibonacci = Fibonacci()
-fibonacci.fibonacci_sec()
-
-'''for i in FibonacciNumbers(10):
+for i in FibonacciNumbers(10):
     print(i)
-0
-1
-1
-2
-3
-5
-8
-13
-21
-34
-55'''
 
-'''2.* Implement generator for Fibonacci numbers
+'''2.* Implement generator for Fibonacci numbers'''
+class Iterator:
+    number_1 = 0
+    number_2 = 1
 
-3. Write generator expression that returns square numbers of integers from 0 to 10
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.number_1
+        self.number_1, self.number_2 = self.number_2, self.number_1 + self.number_2
+        if self.number_2 > 1000:
+            raise StopIteration
+        return self.number_2
+
+abc = Iterator()
+abc.__next__()
+for i in Iterator():
+    print(i)
+class Iterable:
+    number = 0
+
+    def __getitem__(self, key):
+        self.number += 1
+        if self.number == 22:
+            raise StopIteration
+        return self.number
+
+#for i in Iterable():
+#    print(i)
+
+'''3. Write generator expression that returns square numbers of integers from 0 to 10
 
 4. Create an interface for the Laptop with the next methods: Screen, Keyboard, Touchpad, WebCam, Ports, Dynamics
 and create an HPLaptop class by using your interface.'''
