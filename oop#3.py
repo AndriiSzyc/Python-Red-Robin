@@ -60,6 +60,12 @@ gen = generator(10)
 for i in gen:
     print(i)
 
+gen_2 = (i ** 2 for i in range(10))
+
+for i in gen_2:
+    print(i)
+
+
 '''4. Create an interface for the Laptop with the next methods: Screen, Keyboard, Touchpad, WebCam, Ports, Dynamics
 and create an HPLaptop class by using your interface.'''
 
