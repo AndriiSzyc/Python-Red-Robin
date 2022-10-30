@@ -200,6 +200,8 @@ person = Person()
 person.age = 38
 print(person.age)
 
+setattr(person, 'age', 25)
+print(person.age)
 
 # 10.
 class Student:
