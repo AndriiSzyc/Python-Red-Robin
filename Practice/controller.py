@@ -15,7 +15,7 @@ class Controller:
             '7. Get employee id \n'
             '8. Delete employee id\n'
             '9. Change salon for id employee\n'
-            '10. To stop the program type ENTER\n')
+            '10. ENTER to stop program \n')
             flag = input("Choose: ")
             match flag:
                 case '1': cls.add_new_plant()
