@@ -50,3 +50,12 @@ class Model(ABC):
                 del instances[i]
                 break
         cls.save_data_to_file(instances, 'database/' + cls.file)
+
+    @classmethod
+    def change_salon(cls, nwe_name_salon, id):
+        instances = cls.get_data('database/' + cls.file)
+        for i in range(len(instances)):
+            if instances[i]['id'] == id:
+                instances[i]['salon'] = nwe_name_salon
+                break
+        cls.save_data_to_file(instances, 'database/' + cls.file)

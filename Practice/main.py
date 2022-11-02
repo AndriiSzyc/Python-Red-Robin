@@ -1,4 +1,4 @@
-from models.models import Plant, Employee
+from models.models import Plant, Employee, Salon
 
 while True:
     print('1. Add new plant \n'
@@ -8,7 +8,8 @@ while True:
           '5. Add new employee \n'
           '6. Get all employee \n'
           '7. Get employee id \n'
-          '8. Delete employee id')
+          '8. Delete employee id\n'
+          '9. Change salon for id employee')
 
     flag = int(input('Choose: '))
     if flag == 1:
@@ -39,7 +40,8 @@ while True:
         name = input('Type name of employee: ')
         email = input('Type email of employee: ')
         plant_id = int(input('Type id of plant: '))
-        employee = Employee(name, email, plant_id)
+        salon = input('Enter salon: ')
+        employee = Employee(name, email, plant_id, salon)
         employee.save()
 
     elif flag == 6:
@@ -48,6 +50,7 @@ while True:
             print(employee['id'])
             print(employee['name'])
             print(employee['email'])
+            print(employee['salon'])
 
     elif flag == 7:
         id = int(input('Type id of employee: '))
@@ -55,10 +58,20 @@ while True:
         print(employee['id'])
         print(employee['name'])
         print(employee['email'])
+        print(employee['salon'])
 
     elif flag == 8:
         id = int(input('Type id of employee which you want to delete: '))
         Employee.delete(id)
+
+    elif flag == 9:
+        name = input('Type new name of salon to employee: ')
+        id_employee = int(input('Type id of employee: '))
+        Salon.change_salon(name, id_employee)
+
+
+
+
 
 
 
