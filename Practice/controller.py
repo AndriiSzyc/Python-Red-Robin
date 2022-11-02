@@ -4,7 +4,7 @@ from models.models import Plant, Employee, Salon
 class Controller:
 
     @classmethod
-    def main_menu(cls):
+    def start_menu(cls):
         while True:
             print('1. Add new plant \n'
             '2. Get all plants \n'
@@ -98,4 +98,4 @@ class Controller:
 
 
 if __name__ == '__main__':
-    Controller.main_menu()
+    Controller.start_menu()
