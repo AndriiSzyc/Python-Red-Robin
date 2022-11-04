@@ -1,5 +1,7 @@
 import datetime
+import csv
 
+#TASK 1
 class WriteLogs:
     count = 0
 
@@ -20,6 +22,20 @@ with open(read_file, 'r') as file:
     file.read()
     WriteLogs.write(time_now, read_file)
 
+#TASK 2
+def write_scv(file):
+    with open(file, 'r') as txt_file:
+        for line in txt_file:
+            line = line.rstrip('\n')
+            line = line.split(' ')
+            line_sum = line[0] + ' ' + line[1]
+            line = line[2:]
+            line.insert(0, line_sum)
+            print(line)
+            with open('logs.csv', 'a') as csv_file:
+                writer = csv.writer(csv_file, delimiter=',')
+                writer.writerow(line)
 
+scv_model = write_scv('logs.txt')
 
-
+#TASK 3
