@@ -26,8 +26,8 @@ class WriteLogs:
             write_open = str(cls.time) + ' ' + cls.file + ' OPEN\n' if WriteLogs.count % 2 == 0 else str(
                 cls.time) + ' ' + cls.file + ' CLOSE\n'
             logs.write(write_open)
-            WriteLogs.count += 1
+        WriteLogs.count += 1
 
 
-with WriteLogs('file.txt', 'r') as file_read:
-    file_read.read()
+#with WriteLogs('file.txt', 'r') as file_read:
+#    file_read.read()
