@@ -2,8 +2,6 @@ import datetime
 
 
 class WriteLogs:
-    file = None
-    time = None
     count = 0
 
     def __init__(self, filename, mode='r'):
@@ -11,19 +9,18 @@ class WriteLogs:
         self.filename = filename
 
     def __enter__(self):
-        WriteLogs.write(self.filename)
+        self.write()
         return self.file
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        WriteLogs.write(self.filename)
+        self.write()
         self.file.close()
 
-    @classmethod
-    def write(cls, filename):
-        cls.file = filename
+
+    def write(self):
         with open('logs.txt', 'a') as logs:
-            write_open = str(datetime.datetime.now()) + ' ' + cls.file + ' OPEN\n' if WriteLogs.count % 2 == 0 else str(
-                datetime.datetime.now()) + ' ' + cls.file + ' CLOSE\n'
+            write_open = str(datetime.datetime.now()) + ' ' + self.filename + ' OPEN\n' if WriteLogs.count % 2 == 0 else str(
+                datetime.datetime.now()) + ' ' + self.filename + ' CLOSE\n'
             logs.write(write_open)
         WriteLogs.count += 1
 
