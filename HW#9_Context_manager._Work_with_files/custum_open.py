@@ -11,20 +11,19 @@ class WriteLogs:
         self.filename = filename
 
     def __enter__(self):
-        WriteLogs.write(datetime.datetime.now(), self.filename)
+        WriteLogs.write(self.filename)
         return self.file
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        WriteLogs.write(datetime.datetime.now(), self.filename)
+        WriteLogs.write(self.filename)
         self.file.close()
 
     @classmethod
-    def write(cls, time, filename):
-        cls.time = time
+    def write(cls, filename):
         cls.file = filename
         with open('logs.txt', 'a') as logs:
-            write_open = str(cls.time) + ' ' + cls.file + ' OPEN\n' if WriteLogs.count % 2 == 0 else str(
-                cls.time) + ' ' + cls.file + ' CLOSE\n'
+            write_open = str(datetime.datetime.now()) + ' ' + cls.file + ' OPEN\n' if WriteLogs.count % 2 == 0 else str(
+                datetime.datetime.now()) + ' ' + cls.file + ' CLOSE\n'
             logs.write(write_open)
         WriteLogs.count += 1
 
