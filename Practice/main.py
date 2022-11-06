@@ -1,17 +1,31 @@
+import logging
 from models.models import Plant, Employee, Salon
+
+#logging.basicConfig(filename='logs/main.log', encoding='utf-8', level=logging.DEBUG)
 
 while True:
     print('1. Add new plant \n'
           '2. Get all plants \n'
           '3. Get plant id \n'
           '4. Delete plant to id \n'
-          '5. Add new employee \n'
+          '5. Add new employee \n'                     #no work for salon = done
           '6. Get all employee \n'
           '7. Get employee id \n'
           '8. Delete employee id\n'
-          '9. Change salon for id employee')
+          '9. Add new salon\n'                          #no work = done
+          '10. Get all salon\n'                         #no work = done
+          '11. Get salon by id employee\n'              #no work = done
+          '12. Change salon for id employee\n'          #no work = done
+          '13. Delete salon by id employee')            #no work = done
 
-    flag = int(input('Choose: '))
+    logging.info('Menu printed!')
+    try:
+        flag = int(input('Choose: '))
+    except ValueError:
+        logging.error('User typed a symbol not NUMBER')
+        print('You most to type number!!')
+        continue
+
     if flag == 1:
         name = input('Type name of new plant: ')
         location = input('Type location of plant: ')
@@ -42,6 +56,10 @@ while True:
         plant_id = int(input('Type id of plant: '))
         salon = input('Enter salon: ')
         employee = Employee(name, email, plant_id, salon)
+        checks = Salon.check_salon_for_repeat(salon)
+        if checks == 1:
+            salon_add = Salon(salon)
+            salon_add.save()
         employee.save()
 
     elif flag == 6:
@@ -64,10 +82,40 @@ while True:
         id = int(input('Type id of employee which you want to delete: '))
         Employee.delete(id)
 
-    elif flag == 9:
-        name = input('Type new name of salon to employee: ')
+    elif flag == 9: #Add new salon
+        name_salon = input('Name of new salon: ')
+        salon = Salon(name_salon)
+        salon.save()
+
+    elif flag == 10: #Get all salon
+        salons = Salon.get_all()
+        for salon in salons:
+            print(salon['id'])
+            print(salon['name_salon'])
+
+    elif flag == 11: #Get salon by id employee
+        id = int(input('Type id of employee: '))
+        employee = Employee.get_by_id(id)
+        print(employee['id'])
+        print(employee['salon'])
+
+    elif flag == 12: #Change salon for id employee
         id_employee = int(input('Type id of employee: '))
-        Salon.change_salon(name, id_employee)
+        new_name = input(f'Enter new name salon for employeer id {id_employee}: ')
+        Employee.change_salon(id_employee, new_name)
+        checks = Salon.check_salon_for_repeat(new_name)
+        if checks == 1:
+            salon_add = Salon(new_name)
+            salon_add.save()
+
+
+    elif flag == 13: #Delete salon by id employee
+        id = int(input('Type id of employee which salon you want to delete: '))
+        Employee.delete_salon_emp_id(id)
+
+
+
+
 
 
 

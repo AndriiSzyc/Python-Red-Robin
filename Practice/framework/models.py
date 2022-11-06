@@ -52,10 +52,38 @@ class Model(ABC):
         cls.save_data_to_file(instances, 'database/' + cls.file)
 
     @classmethod
-    def change_salon(cls, nwe_name_salon, id):
+    def change_salon(cls, id,  nwe_name_salon):             #for Employee
         instances = cls.get_data('database/' + cls.file)
         for i in range(len(instances)):
             if instances[i]['id'] == id:
                 instances[i]['salon'] = nwe_name_salon
                 break
         cls.save_data_to_file(instances, 'database/' + cls.file)
+
+    @classmethod
+    def check_salon_for_repeat(cls, name_salon):             #for Salon
+        data = cls.get_data('database/' + cls.file)
+        if len(data) == 0:
+            return 1
+        else:
+            for i in range(len(data)):
+                if data[i]['name_salon'] == name_salon:
+                    data[i]['count'] += 1
+                    cls.save_data_to_file(data, 'database/' + cls.file)
+                    break
+                else:
+                    return 1
+
+
+    @classmethod
+    def delete_salon_emp_id(cls, id):                    #for Employee
+        instances = cls.get_data('database/' + cls.file)
+        for employee in instances:
+            if employee['id'] == id:
+                employee['salon'] = ''
+                break
+        cls.save_data_to_file(instances, 'database/' + cls.file)
+
+    # @classmethod
+    # def
+

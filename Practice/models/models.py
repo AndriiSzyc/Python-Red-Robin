@@ -1,7 +1,5 @@
 from framework.models import Model
 
-
-
 class Plant(Model):
     file = 'plants.json'
 
@@ -9,11 +7,9 @@ class Plant(Model):
         self.name = name
         self.location = location
 
-
 class Employee(Model):
     file = 'employees.json'
-
-    def __init__(self, name, email, plant_id, salon):
+    def __init__(self, name, email, plant_id, salon = ''):
         self.name = name
         self.email = email
         self.plant_id = plant_id
@@ -21,11 +17,12 @@ class Employee(Model):
 
 
 class Salon(Model):
-    file = 'employees.json'
+    file = 'salon.json'
 
-    def __init__(self, name_salon, id_employee):
+    def __init__(self, name_salon):
         self.name_salon = name_salon
-        self.id_employee = id_employee
+        self.count = 1
+
 
 
 
