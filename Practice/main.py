@@ -1,5 +1,7 @@
 import logging
 from models.models import Plant, Employee, Salon
+from compare import Compare
+
 
 #logging.basicConfig(filename='logs/main.log', encoding='utf-8', level=logging.DEBUG)
 
@@ -17,6 +19,7 @@ while True:
           '11. Get salon by id employee\n'              #no work = done
           '12. Change salon for id employee\n'          #no work = done
           '13. Delete salon by id employee')            #no work = done
+
 
     logging.info('Menu printed!')
     try:
@@ -62,6 +65,7 @@ while True:
             salon_add.save()
         employee.save()
 
+
     elif flag == 6:
         employees = Employee.get_all()
         for employee in employees:
@@ -87,11 +91,13 @@ while True:
         salon = Salon(name_salon)
         salon.save()
 
+
     elif flag == 10: #Get all salon
         salons = Salon.get_all()
         for salon in salons:
             print(salon['id'])
             print(salon['name_salon'])
+
 
     elif flag == 11: #Get salon by id employee
         id = int(input('Type id of employee: '))
@@ -109,11 +115,14 @@ while True:
             salon_add.save()
 
 
+
     elif flag == 13: #Delete salon by id employee
         id = int(input('Type id of employee which salon you want to delete: '))
         Employee.delete_salon_emp_id(id)
 
 
+    compare = Compare('database/salon.json', 'database/employees.json')
+    compare.compare_lists()
 
 
 

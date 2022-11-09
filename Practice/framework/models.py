@@ -84,6 +84,6 @@ class Model(ABC):
                 break
         cls.save_data_to_file(instances, 'database/' + cls.file)
 
-    # @classmethod
-    # def
+
+
 
