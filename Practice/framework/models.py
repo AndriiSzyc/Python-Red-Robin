@@ -67,20 +67,20 @@ class Model(ABC):
         instances = cls.get_data('database/' + cls.file)
         for employee in instances:
             if employee['id'] == id:
-                del_salon = employee['name_salon']
+                #del_salon = employee['name_salon']
                 employee['name_salon'] = ''
                 break
         cls.save_data_to_file(instances, 'database/' + cls.file)
-        return del_salon
+        #return del_salon
 
-    @classmethod
-    def delete_salon_json(cls, name_salon):              #for Salon
-        instances = cls.get_data('database/' + cls.file)
-        for i in range(len(instances)):
-            if instances[i]['name_salon'] == name_salon:
-                del instances[i]
-                break
-        cls.save_data_to_file(instances, 'database/' + cls.file)
+    # @classmethod
+    # def delete_salon_json(cls, name_salon):              #for Salon
+    #     instances = cls.get_data('database/' + cls.file)
+    #     for i in range(len(instances)):
+    #         if instances[i]['name_salon'] == name_salon:
+    #             del instances[i]
+    #             break
+    #     cls.save_data_to_file(instances, 'database/' + cls.file)
 
 
 
