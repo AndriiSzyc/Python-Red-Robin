@@ -41,7 +41,6 @@ class Model(ABC):
             if instance['id'] == id:
                 return instance
 
-
     @classmethod
     def delete(cls, id):
         instances = cls.get_data('database/' + cls.file)
@@ -52,35 +51,30 @@ class Model(ABC):
         cls.save_data_to_file(instances, 'database/' + cls.file)
 
     @classmethod
-    def change_salon(cls, id,  nwe_name_salon):             #for Employee
+    def change_salon(cls, id,  nwe_name_salon):             #for change Employee
         instances = cls.get_data('database/' + cls.file)
         for i in range(len(instances)):
             if instances[i]['id'] == id:
-
                 instances[i]['name_salon'] = nwe_name_salon
+                new_name = instances[i]['name_salon']
                 break
         cls.save_data_to_file(instances, 'database/' + cls.file)
-
+        return new_name
 
     @classmethod
     def delete_salon_emp_id(cls, id):                    #for Employee
         instances = cls.get_data('database/' + cls.file)
         for employee in instances:
             if employee['id'] == id:
-                #del_salon = employee['name_salon']
                 employee['name_salon'] = ''
                 break
         cls.save_data_to_file(instances, 'database/' + cls.file)
-        #return del_salon
-
-    # @classmethod
-    # def delete_salon_json(cls, name_salon):              #for Salon
-    #     instances = cls.get_data('database/' + cls.file)
-    #     for i in range(len(instances)):
-    #         if instances[i]['name_salon'] == name_salon:
-    #             del instances[i]
-    #             break
-    #     cls.save_data_to_file(instances, 'database/' + cls.file)
 
 
-
+    @classmethod
+    def delete_salon_json(cls, name_salon):              #for change Salon
+        instances = cls.get_data('database/' + cls.file)
+        for i in range(len(instances)):
+            if instances[i]['name_salon'] == name_salon:
+                break
+        cls.save_data_to_file(instances, 'database/' + cls.file)

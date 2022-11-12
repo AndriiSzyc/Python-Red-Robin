@@ -45,7 +45,3 @@ class Compare:
                     count += 1
                 data_1[i]['count'] = count
         return self.save_data_to_file(self.first_json, data_1)
-
-
-# compare = Compare('database/salon.json', 'database/employees.json')
-# compare.compare_lists()

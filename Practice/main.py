@@ -29,7 +29,9 @@ while True:
         logging.error('User typed a symbol not NUMBER')
         print('You most to type number!!')
         continue
+
     compare = Compare('database/salon.json', 'database/employees.json')
+
     if flag == 1:
         name = input('Type name of new plant: ')
         location = input('Type location of plant: ')
@@ -63,8 +65,6 @@ while True:
         employee.save()
         compare.compare_lists()
 
-
-
     elif flag == 6:
         employees = Employee.get_all()
         for employee in employees:
@@ -91,30 +91,24 @@ while True:
         salon.save()
         compare.compare_lists()
 
-
     elif flag == 10: #Get all salon
         salons = Salon.get_all()
         for salon in salons:
             print(salon['id'])
             print(salon['name_salon'])
 
-
-
     elif flag == 11: #Get salon by id employee
         id = int(input('Type id of employee: '))
         employee = Employee.get_by_id(id)
         print(employee['id'])
-        print(employee['salon'])
-
+        print(employee['name_salon'])
 
     elif flag == 12: #Change salon for id employee
         id_employee = int(input('Type id of employee: '))
         new_name = input(f'Enter new name salon for employeer id {id_employee}: ')
-        Employee.change_salon(id_employee, new_name)
+        salon = Salon(Employee.change_salon(id_employee, new_name))
+        salon.save()
         compare.compare_lists()
-
-
-
 
     elif flag == 13: #Delete salon by id employee
         id = int(input('Type id of employee which salon you want to delete: '))
