@@ -37,6 +37,13 @@ class Compare:
             if data_1[i]["name_salon"] in result:
                 del data_1[i]
                 break
+
+        for i in range(len(data_1)):
+            count = 0
+            for j in range(len(data_2)):
+                if data_1[i]['name_salon'] == data_2[j]['name_salon']:
+                    count += 1
+                data_1[i]['count'] = count
         return self.save_data_to_file(self.first_json, data_1)
 
 

@@ -60,10 +60,9 @@ while True:
         plant_id = int(input('Type id of plant: '))
         salon = input('Enter salon: ')
         employee = Employee(name, email, plant_id, salon)
-        salon_add = Salon(salon)
-        salon_add.save()
         employee.save()
         compare.compare_lists()
+
 
 
     elif flag == 6:
@@ -96,7 +95,7 @@ while True:
     elif flag == 10: #Get all salon
         salons = Salon.get_all()
         for salon in salons:
-            #print(salon['id'])
+            print(salon['id'])
             print(salon['name_salon'])
 
 
@@ -112,8 +111,6 @@ while True:
         id_employee = int(input('Type id of employee: '))
         new_name = input(f'Enter new name salon for employeer id {id_employee}: ')
         Employee.change_salon(id_employee, new_name)
-        salon_add = Salon(new_name)
-        salon_add.save()
         compare.compare_lists()
 
 
@@ -121,7 +118,7 @@ while True:
 
     elif flag == 13: #Delete salon by id employee
         id = int(input('Type id of employee which salon you want to delete: '))
-        Salon.delete_salon_json(Employee.delete_salon_emp_id(id))
+        Employee.delete_salon_emp_id(id)
         compare.compare_lists()
 
 
