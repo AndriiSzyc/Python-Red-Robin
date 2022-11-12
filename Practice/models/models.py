@@ -9,19 +9,18 @@ class Plant(Model):
 
 class Employee(Model):
     file = 'employees.json'
-    def __init__(self, name, email, plant_id, salon = ''):
+    def __init__(self, name, email, plant_id, name_salon = ''):
         self.name = name
         self.email = email
         self.plant_id = plant_id
-        self.salon = salon
+        self.name_salon = name_salon
 
 
 class Salon(Model):
     file = 'salon.json'
-
     def __init__(self, name_salon):
         self.name_salon = name_salon
-        self.count = 1
+
 
 
 

@@ -22,29 +22,23 @@ class Compare:
     def compare_lists(self):
         data_1 = self.get_data(self.first_json)
         data_2 = self.get_data(self.second_json)
-        add_list = []
-        for el1 in range(len(data_1)):
-            count_salon = 0
-            for el2 in range(len(data_2)):
-                if data_1[el1]["name_salon"] == data_2[el2]["salon"]:
-                    print(data_1[el1]["name_salon"])
-                    add_list.append(data_1[el1])
-                    count_salon += 1
-                    print('count salon ', count_salon, '\n')
-                    if count_salon > 1:
-                        data_1[el1]['count'] = count_salon
-                        add_list.append(data_1[el1]['count'])
-                    else:
-                        break
 
-        add_list2 = []
-        for item in add_list:
-            if item not in add_list2:
-                add_list2.append(item)
-        #return add_list2
-        return self.save_data_to_file(self.first_json, add_list2)
+        set_ls1 = set()
+        for i in range(len(data_1)):
+            set_ls1.add(data_1[i]["name_salon"])
+
+        set_ls2 = set()
+        for i in range(len(data_2)):
+            set_ls2.add(data_2[i]["name_salon"])
+
+        result = list(set_ls1 ^ set_ls2)
+
+        for i in range(len(data_1)):
+            if data_1[i]["name_salon"] in result:
+                del data_1[i]
+                break
+        return self.save_data_to_file(self.first_json, data_1)
 
 
 # compare = Compare('database/salon.json', 'database/employees.json')
 # compare.compare_lists()
-# print(compare.compare_lists())

@@ -1,1 +1,1 @@
-[{"name": "Andrii", "email": "andri@", "plant_id": 1, "salon": "green", "id": 1}, {"name": "Olha", "email": "olha@", "plant_id": 2, "salon": "red", "id": 2}, {"name": "Egor", "email": "egor@", "plant_id": 3, "salon": "red", "id": 3}]
+[{"name": "Andrii", "email": "andrii", "plant_id": 1, "name_salon": "green", "id": 1}, {"name": "Olha", "email": "olha@", "plant_id": 2, "name_salon": "red", "id": 2}, {"name": "Egor", "email": "egor@", "plant_id": 3, "name_salon": "black", "id": 3}, {"name": "Kate", "email": "kate@", "plant_id": 4, "name_salon": "purple", "id": 4}]
