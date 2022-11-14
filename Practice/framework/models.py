@@ -78,3 +78,16 @@ class Model(ABC):
             if instances[i]['name_salon'] == name_salon:
                 break
         cls.save_data_to_file(instances, 'database/' + cls.file)
+
+    @classmethod
+    def check_for_repetition(cls, new_salon):  #for Salon
+        data = cls.get_data('database/' + cls.file)  # з json в python сутність list()
+        print(data)
+        count = 0
+        for i in range(len(data)):
+            if data[i]['name_salon'] == new_salon:
+                data[i]['count'] += 1
+                count += 1
+                break
+        if count == 0:
+            return 1

@@ -18,12 +18,7 @@ class Employee(Model):
 
 class Salon(Model):
     file = 'salon.json'
+
     def __init__(self, name_salon):
         self.name_salon = name_salon
         self.count = 1
-
-
-
-
-
-

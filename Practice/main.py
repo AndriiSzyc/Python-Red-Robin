@@ -63,6 +63,10 @@ while True:
         salon = input('Enter salon: ')
         employee = Employee(name, email, plant_id, salon)
         employee.save()
+        test = Salon.check_for_repetition(salon)
+        if test == 1:
+            salon_emp = Salon(salon)
+            salon_emp.save()  # потрібно не створювати якщо вже існує в джейсоні
         compare.compare_lists()
 
     elif flag == 6:
@@ -106,8 +110,11 @@ while True:
     elif flag == 12: #Change salon for id employee
         id_employee = int(input('Type id of employee: '))
         new_name = input(f'Enter new name salon for employeer id {id_employee}: ')
-        salon = Salon(Employee.change_salon(id_employee, new_name))
-        salon.save()
+        Employee.change_salon(id_employee, new_name) #work
+        test = Salon.check_for_repetition(new_name)
+        if test == 1:
+            salon_emp = Salon(new_name)
+            salon_emp.save()  # потрібно не створювати якщо вже існує в джейсоні
         compare.compare_lists()
 
     elif flag == 13: #Delete salon by id employee
