@@ -82,7 +82,6 @@ class Model(ABC):
     @classmethod
     def check_for_repetition(cls, new_salon):  #for Salon
         data = cls.get_data('database/' + cls.file)  # з json в python сутність list()
-        print(data)
         count = 0
         for i in range(len(data)):
             if data[i]['name_salon'] == new_salon:
