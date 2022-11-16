@@ -2,9 +2,9 @@ import logging
 from models.models import Plant, Employee, Salon
 from compare import Compare
 
-
-
-#logging.basicConfig(filename='logs/main.log', encoding='utf-8', level=logging.DEBUG)
+date_strftime_format = "%d-%b-%y %H:%M:%S"
+message_format = "%(asctime)s - %(levelname)s - %(message)s"
+logging.basicConfig(filename="logs/main.log", format= message_format, datefmt= date_strftime_format, encoding="UTF-8", level=logging.DEBUG)
 
 while True:
     print('1. Add new plant \n'
@@ -46,7 +46,11 @@ while True:
             print(plant['location'])
 
     elif flag == 3:
-        id = int(input('Type id of plant: '))
+        try:
+            id = int(input('Type id of plant: '))
+        except ValueError:
+            logging.error('Id of plant not a number')
+            continue
         plant = Plant.get_by_id(id)
         print(plant['id'])
         print(plant['name'])
@@ -78,7 +82,11 @@ while True:
             print(employee['salon'])
 
     elif flag == 7:
-        id = int(input('Type id of employee: '))
+        try:
+            id = int(input('Type id of employee: '))
+        except ValueError:
+            logging.error('Id of employee not a number')
+            continue
         employee = Employee.get_by_id(id)
         print(employee['id'])
         print(employee['name'])

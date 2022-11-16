@@ -15,6 +15,12 @@ class Employee(Model):
         self.plant_id = plant_id
         self.name_salon = name_salon
 
+    def save(self):
+        plant = Plant.get_by_id(self.plant_id)
+        if not plant:
+            raise Exception('Plant not found')
+        super(Employee).save()
+
 
 class Salon(Model):
     file = 'salon.json'

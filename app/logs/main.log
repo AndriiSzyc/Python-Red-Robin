@@ -1,0 +1,70 @@
+15-Nov-22 15:23:30 - INFO - Menu printed!!!
+15-Nov-22 15:23:46 - WARNING - [Errno 2] No such file or directory: 'database/plants.json'
+15-Nov-22 15:23:46 - INFO - File created
+15-Nov-22 15:23:46 - INFO - Menu printed!!!
+15-Nov-22 15:25:39 - WARNING - [Errno 2] No such file or directory: 'database/employees.json'
+15-Nov-22 15:25:39 - INFO - File created
+15-Nov-22 15:25:39 - ERROR - Not a valid email address! Email: testName@neme
+15-Nov-22 15:25:39 - INFO - Menu printed!!!
+16-Nov-22 15:15:46 - INFO - Menu printed!!!
+16-Nov-22 15:17:37 - INFO - Menu printed!!!
+16-Nov-22 15:17:43 - INFO - Menu printed!!!
+16-Nov-22 15:17:52 - INFO - Menu printed!!!
+16-Nov-22 15:21:02 - INFO - Menu printed!!!
+16-Nov-22 15:22:45 - INFO - Menu printed!!!
+16-Nov-22 15:23:44 - INFO - Menu printed!!!
+16-Nov-22 15:24:10 - INFO - Menu printed!!!
+16-Nov-22 16:14:35 - INFO - Menu printed!!!
+16-Nov-22 16:14:41 - INFO - Menu printed!!!
+16-Nov-22 16:15:56 - INFO - Menu printed!!!
+16-Nov-22 16:16:44 - INFO - Menu printed!!!
+16-Nov-22 16:26:20 - INFO - Menu printed!!!
+16-Nov-22 16:26:31 - ERROR - invalid literal for int() with base 10: 'd'
+16-Nov-22 16:26:31 - INFO - Menu printed!!!
+16-Nov-22 16:29:56 - INFO - Menu printed!!!
+16-Nov-22 16:31:23 - INFO - Menu printed!!!
+16-Nov-22 16:39:55 - INFO - Menu printed!!!
+16-Nov-22 16:41:53 - INFO - Menu printed!!!
+16-Nov-22 16:41:57 - ERROR - 'NoneType' object is not subscriptable
+16-Nov-22 16:41:57 - INFO - Menu printed!!!
+16-Nov-22 16:43:58 - INFO - Menu printed!!!
+16-Nov-22 16:44:05 - INFO - Menu printed!!!
+16-Nov-22 16:45:30 - INFO - Menu printed!!!
+16-Nov-22 16:45:35 - INFO - Menu printed!!!
+16-Nov-22 16:48:04 - INFO - Menu printed!!!
+16-Nov-22 16:48:34 - ERROR - invalid literal for int() with base 10: 'k'
+16-Nov-22 16:48:34 - INFO - Menu printed!!!
+16-Nov-22 16:48:50 - INFO - Menu printed!!!
+16-Nov-22 16:50:13 - INFO - Menu printed!!!
+16-Nov-22 16:50:20 - INFO - We have delete
+16-Nov-22 16:50:20 - INFO - Menu printed!!!
+16-Nov-22 16:52:45 - INFO - Menu printed!!!
+16-Nov-22 16:52:52 - INFO - We have delete
+16-Nov-22 16:52:52 - INFO - Menu printed!!!
+16-Nov-22 16:55:36 - INFO - Menu printed!!!
+16-Nov-22 16:55:56 - INFO - Menu printed!!!
+16-Nov-22 16:56:23 - INFO - Menu printed!!!
+16-Nov-22 16:56:38 - INFO - Menu printed!!!
+16-Nov-22 16:56:53 - ERROR - Id of employee not a number
+16-Nov-22 16:56:53 - INFO - Menu printed!!!
+16-Nov-22 16:58:44 - INFO - Menu printed!!!
+16-Nov-22 16:58:56 - ERROR - 'NoneType' object is not subscriptable
+16-Nov-22 16:58:56 - INFO - Menu printed!!!
+16-Nov-22 17:01:01 - INFO - Menu printed!!!
+16-Nov-22 17:01:06 - ERROR - Id of employee not a number
+16-Nov-22 17:01:06 - INFO - Menu printed!!!
+16-Nov-22 17:01:18 - INFO - Menu printed!!!
+16-Nov-22 17:02:37 - INFO - Menu printed!!!
+16-Nov-22 17:03:22 - INFO - Menu printed!!!
+16-Nov-22 17:03:27 - ERROR - No such id exists
+16-Nov-22 17:03:27 - INFO - Menu printed!!!
+16-Nov-22 17:06:26 - INFO - Menu printed!!!
+16-Nov-22 17:06:32 - INFO - We have delete
+16-Nov-22 17:06:32 - ERROR - No such id exists
+16-Nov-22 17:06:32 - INFO - Menu printed!!!
+16-Nov-22 17:08:04 - INFO - Menu printed!!!
+16-Nov-22 17:08:32 - ERROR - invalid literal for int() with base 10: 'df'
+16-Nov-22 17:08:32 - INFO - Menu printed!!!
+16-Nov-22 17:15:53 - INFO - Menu printed!!!
+16-Nov-22 17:16:08 - ERROR - Plant not found!
+16-Nov-22 17:16:08 - INFO - Menu printed!!!

@@ -1,14 +1,29 @@
 from abc import ABC
+import os
 import json
+import logging
 
 class Model(ABC):
     file = 'default.json'
 
     @staticmethod
     def get_data(path):
-        file = open(path, 'r')
-        data = json.loads(file.read())
-        file.close()
+        try:
+            file = open(path, 'r')
+            data = json.loads(file.read())
+            file.close()
+        except FileNotFoundError:
+            logging.warning('File not found')
+            if not os.path.exists('database'):
+                logging.warning('Folder database not exist ')
+                os.mkdir('database')
+            file = open(path, 'w')
+            file.write('[]')
+            file.close()
+            logging.info('File created')
+            file = open(path, 'r')
+            data = json.loads(file.read())
+            file.close()
         return data
 
     def save(self):
@@ -25,9 +40,19 @@ class Model(ABC):
 
     @staticmethod
     def save_data_to_file(data, path):
-        file = open(path, 'w')
-        file.write(json.dumps(data))  # з python в json сутність
-        file.close()
+        try:
+            file = open(path, 'w')
+            file.write(json.dumps(data))  # з python в json сутність
+            file.close()
+        except FileNotFoundError:
+            logging.warning('File not found')
+            if not os.path.exists('database'):
+                logging.warning('Folder database not exist ')
+                os.mkdir('dadabase')
+            file = open(path, 'w')
+            file.write(json.dumps(data))  # з python в json сутність
+            file.close()
+            logging.info('File created')
 
     @classmethod
     def get_all(cls):
