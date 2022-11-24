@@ -101,22 +101,13 @@ def type_check(correct_type):
     # put code here
     def decorator(func):
         def wrapper(args):
-            if correct_type == int:
-                if isinstance(args, int):
-                    amount = func(args)
-                    return amount
-                else:
-                    raise Exception(f"Wrong Type: {type(args)}")
-            elif correct_type == str:
-                if isinstance(args, str):
-                    amount = func(args)
-                    return amount
-                else:
-                    raise Exception(f"Wrong Type: {type(args)}")
+            if isinstance(args, correct_type):
+                amount = func(args)
+                return amount
+            else:
+                raise Exception(f"Wrong Type: {type(args)}")
         return wrapper
     return decorator
-
-
 
 @type_check(int)
 def times2(num):
