@@ -63,29 +63,27 @@ print(multiply(1, 3, 5, 7, 9),'\n')
 # and **kwargs and print them both):
 
 def logged(func):
-    # log function arguments and its return value
+# log function arguments and its return value
     def wrapper(*args, **kwargs):
-        res = func(*args, **kwargs)
-        if len(args) != 0:
-            with open('logfile', 'a') as log_file:
-                log_file.write(f'\nYou have *args {args} parameters. And result function {res if isinstance(res, int) else res[0]}')
-        if len(kwargs) != 0:
-            with open('logfile', 'a') as log_file:
-                log_file.write(f'\nYou have **kwargs {kwargs} parameters. And result function {res if isinstance(res, int) else res[1]}')
-        return func(*args, **kwargs)
+        res_lst = []
+        for i in (args, kwargs):
+            if len(i) != 0:
+                res = func(*i)
+                res_lst.append(res)
+                with open('logfile.log', 'a') as log_file:
+                    log_file.write(f'\nYou have {i} parameters. And result function {res}')
+        return tuple(res_lst)
     return wrapper
 
+
+
 @logged
-def func(*args, **kwargs):
-    if len(args) != 0 and len(kwargs) != 0:
-        return 3 + len(args), 3 + len(kwargs)
-    elif len(args) == 0:
-        return 3 + len(kwargs)
-    else:
-        return 3 + len(args)
+def func(*args):
+    return 3 + len(args)
 
 
-#print(func(1, 2, 'stop', a='stop', b=['one', 33, 'cool']))
+
+print(func(1, 2, 'stop', a='stop', b=['one', 33, 'cool']))
 
 
 # you called func(4, 4, 4)
