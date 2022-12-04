@@ -21,7 +21,7 @@ unittest: ## Start testing with unittest
 	. .venv/bin/activate; python -m unittest
 
 pytest: ## Start testing with pytest
-	. .venv/bin/activate; pytest ./
+	. .venv/bin/activate; pytest tests_pytest.py
 
 run: ## Run
 	. .venv/bin/activate; python main.py
