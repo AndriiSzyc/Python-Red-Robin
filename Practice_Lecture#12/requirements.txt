@@ -1,7 +1,10 @@
-flake8
-mypy
+#production
 PyJWT
 itsdangerous
+
+#development
+flake8
+mypy
 black
 pytest
 isort
