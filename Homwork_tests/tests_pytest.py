@@ -1,31 +1,36 @@
 import pytest
 from signers import Signer
 
-
 @pytest.fixture
-def taras():
-    return Taras(age=18, sex="male")
+def sign():
+    return Signer(secret='sec', salt='slt')
+
+def test_chek_isinstance_input(sign):
+    payload = {'name': 'Ozzy'}
+    assert isinstance(payload, dict)
 
 
-def test_taras_age(taras):
-    assert taras.age == 18
+def test_jwt_encode(sign):
+    payload = {'name': 'Ozzy'}
+    encode = sign.jwt_encode(payload)
+    assert payload != encode
 
 
-def test_taras_sex(taras):
-    assert taras.sex == "male"
+def test_jwt_decode(sign):
+    payload = {'name': 'Ozzy'}
+    encode = sign.jwt_encode(payload)
+    decode = sign.jwt_decode(encode)
+    assert decode == payload
 
 
-def test_taras_age_sex(taras):
-    assert taras.sex != "female"
+def test_itsdangerous_encode(sign):
+    payload = {'name': 'Ozzy'}
+    encode = sign.itsdangerous_encode(payload)
+    assert payload != encode
 
 
-def test_number_zero():
-    assert numbers(0) == "zero"
-
-
-def test_number_string():
-    assert isinstance(numbers(0), str)
-
-
-def test_number_unexpected():
-    assert numbers(5) == "Unexpected argument"
+def test_itsdangerous_decode(sign):
+    payload = {'name': 'Ozzy'}
+    encode = sign.itsdangerous_encode(payload)
+    decode = sign.itsdangerous_decode(encode)
+    assert decode == payload
