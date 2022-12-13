@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from main import numbers
+from signers import Signer
 
 
 class TestNumbers(TestCase):
