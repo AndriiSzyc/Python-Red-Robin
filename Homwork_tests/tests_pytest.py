@@ -1,5 +1,6 @@
 import pytest
 from signers import Signer
+import jwt
 
 
 @pytest.fixture
