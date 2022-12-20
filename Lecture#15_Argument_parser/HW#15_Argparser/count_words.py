@@ -3,8 +3,8 @@ import argparse
 def count_words(file_name):
     with open(file_name, 'r') as file:
         words = file.read()
-    count = len(words.split())
-    print(count)
+        print(len(words.split()))
+
 
 def main():
     parser = argparse.ArgumentParser('Counts numbers of words in file')
