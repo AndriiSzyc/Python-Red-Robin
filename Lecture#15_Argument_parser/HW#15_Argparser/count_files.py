@@ -9,7 +9,7 @@ def fcount(path):
     return count
 
 def main():
-    parser = argparse.ArgumentParser(description='Counts numbers of words in file')
+    parser = argparse.ArgumentParser(description='Counts files in directory')
     parser.add_argument('-c',  action='store_true', help='Counts files in script directory')
     parser.add_argument('-l', '--last', action='store_true', help='Swows name of last file')
     parser.add_argument('-d', action='store_true', help='Directory path')
