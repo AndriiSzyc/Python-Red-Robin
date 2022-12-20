@@ -1,10 +1,11 @@
 import argparse
+import string
 
 def count_words(file_name):
     with open(file_name, 'r') as file:
-        words = file.read()
-        print(len(words.split()))
-
+        text = file.read()
+        text = text.translate(text.maketrans('', '', string.punctuation))
+        print(len(text.split()))
 
 def main():
     parser = argparse.ArgumentParser('Counts numbers of words in file')
