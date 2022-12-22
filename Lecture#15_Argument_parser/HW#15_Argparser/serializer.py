@@ -1,4 +1,6 @@
 import datetime
+import csv
+import json
 
 class Human:
     def __init__(self, name, surname, age, birth_date):
@@ -9,9 +11,30 @@ class Human:
 
 class HumanSerializer:
     def serialize(self, obj, format):
-        pass
+        if format == 'JSON':
+            return self._serialize_to_json(obj)
+        elif format == 'CSV':
+            return self._serialize_to_csv(obj)
+        else:
+            raise ValueError(format)
+
+    def _serialize_to_json(self, obj):
+        myData = {'name': obj.name,
+                   'surname': obj.surname,
+                   'age': obj.age,
+                   'birth_date': obj.birth_date}
+        with open('file.json', 'w') as jsonfile:
+            json.dump(myData, jsonfile)
+
+
+    def _serialize_to_csv(self, obj):
+        myData = [['name', 'surname', 'age', 'birth_date'],
+                  [obj.name, obj.age, obj.birth_date]]
+        with open('file.csv', 'w') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
+            writer.writerows(myData)
 
 obj = Human('Oleksiy', 'Maksymiv', 30, datetime.date(1992, 11, 13))
 print(obj.birth_date, type(obj.birth_date))
-#HumanSerializer.serialize(obj, 'csv')  # 1992-11-13 => 13-11-1992
-#HumanSerializer.serialize(obj, 'json') # 1992-11-13 => 1992-11-13 00:00:00
+HumanSerializer().serialize(obj, 'CSV')  # 1992-11-13 => 13-11-1992
+HumanSerializer().serialize(obj, 'JSON') # 1992-11-13 => 1992-11-13 00:00:00
