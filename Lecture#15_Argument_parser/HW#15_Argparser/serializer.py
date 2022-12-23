@@ -19,17 +19,19 @@ class HumanSerializer:
             raise ValueError(format)
 
     def _serialize_to_json(self, obj):
+        format_date = obj.birth_date.strftime('%d-%m-%Y %H:%M:%S')
         myData = {'name': obj.name,
                    'surname': obj.surname,
                    'age': obj.age,
-                   'birth_date': obj.birth_date}
+                   'birth_date': format_date}
         with open('file.json', 'w') as jsonfile:
             json.dump(myData, jsonfile)
 
 
     def _serialize_to_csv(self, obj):
+        format_date = obj.birth_date.strftime('%d-%m-%Y')
         myData = [['name', 'surname', 'age', 'birth_date'],
-                  [obj.name, obj.age, obj.birth_date]]
+                  [obj.name, obj.surname, obj.age, format_date]]
         with open('file.csv', 'w') as csvfile:
             writer = csv.writer(csvfile, delimiter=',')
             writer.writerows(myData)
