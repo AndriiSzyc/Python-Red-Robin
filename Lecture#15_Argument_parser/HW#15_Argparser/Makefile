@@ -17,4 +17,4 @@ lint: ## Check code quality
 
 
 run: ## Run
-	. .venv/bin/activate; python main.py
+	. .venv/bin/activate; python serializer.py
