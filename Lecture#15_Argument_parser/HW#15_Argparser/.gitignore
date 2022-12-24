@@ -1,0 +1,7 @@
+.venv
+venv
+__pycache__/
+/tox.ini
+/Makefile
+/requirements.txt
+.idea
