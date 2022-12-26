@@ -10,3 +10,11 @@ setup: ## project setup
 	. .venv/bin/activate; pip install --upgrade pip
 	. .venv/bin/activate; pip install jupyterlab
 	. .venv/bin/activate; pip install wheel setuptools
+	. .venv/bin/activate; pip install -r requirements.txt
+
+lint: ## Check code quality
+	. .venv/bin/activate; black ./
+	. .venv/bin/activate; flake8
+
+run: ## Run
+	. .venv/bin/activate; python

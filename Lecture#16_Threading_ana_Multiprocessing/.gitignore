@@ -3,3 +3,6 @@ venv
 __pycache__/
 .idea
 pycon-concurrency-tutorial-2020
+tox.ini
+requirements.txt
+Makefile
