@@ -8,3 +8,10 @@ requirements.txt
 Makefile
 test.py
 Basic_example_of_thread.py
+Running_multiple_threads_in_parallel.py
+Thread_States.py
+Thread_Identity.py
+Thread_knows_itself.py
+Passing_parameters_to_threads.py
+Subclassing_Thread.py
+Shared_Data.py
