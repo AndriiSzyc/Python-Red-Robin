@@ -15,3 +15,5 @@ Thread_knows_itself.py
 Passing_parameters_to_threads.py
 Subclassing_Thread.py
 Shared_Data.py
+Race_condition.py
+locking.py
