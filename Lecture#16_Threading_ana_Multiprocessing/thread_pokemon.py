@@ -2,7 +2,6 @@ import time
 import threading
 from threading import Thread
 import requests
-import asyncio
 from requests.exceptions import HTTPError
 
 
