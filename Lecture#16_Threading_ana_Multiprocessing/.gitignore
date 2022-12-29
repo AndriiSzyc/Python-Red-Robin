@@ -5,5 +5,4 @@ __pycache__/
 pycon-concurrency-tutorial-2020
 tox.ini
 requirements.txt
-Makefile
 test.py

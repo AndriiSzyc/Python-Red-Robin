@@ -1,6 +1,7 @@
 import asyncio
 import requests
 import aiohttp
+import time
 
 BASE_URL = "http://localhost:5000"
 EXCHANGES = ['bitfinex', 'bitstamp', 'kraken']
@@ -24,3 +25,5 @@ async def main():
         await asyncio.gather(*[check_price(session, exchange, 'btc', '2020-04-01')for exchange in EXCHANGES])
 
     print(time.time() - start)
+
+asyncio.run(main())
